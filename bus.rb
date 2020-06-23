@@ -28,5 +28,12 @@ class Bus
     def empty_bus(status)
         @passengers.clear if (status)
     end
+    
+    def pick_up_from_queue(bus_stop)
+        for person in bus_stop.queue()
+            pick_up(person)
+        end
+        bus_stop.clear_queue()
+    end
 
 end

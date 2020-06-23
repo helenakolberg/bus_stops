@@ -66,13 +66,13 @@ class BusTest < MiniTest::Test
     end
 
     def test_add_passenger_from_queue_to_bus()
-        @queue = [@passenger1, @passenger2]
-        @bus_stop.queue = @queue
-        @bus.pick_up(@queue)
-        
+        @bus_stop.add_passenger_to_queue(@passenger1)
+        @bus_stop.add_passenger_to_queue(@passenger2)
+        @bus.pick_up_from_queue(@bus_stop)
+        @bus_stop.clear_queue()
         assert_equal(0, @bus_stop.check_queue())
         assert_equal(2, @bus.count_passengers())
-        
+
     end
 
 

@@ -15,4 +15,8 @@ class BusStop
     def add_passenger_to_queue(passenger)
         return @queue.push(passenger)
     end
+
+    def clear_queue()
+        @queue.clear()
+    end
 end
